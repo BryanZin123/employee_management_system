@@ -1,0 +1,25 @@
+package com.claim.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.claim.entity.Student;
+
+
+@Controller
+
+public class StudentController {
+	
+	@GetMapping("/")
+	public String welcome(Model model) {
+		return "sign-up";
+	}
+	
+	@GetMapping("/sign-up")
+	public ModelAndView signUp(Model model) {
+		return new ModelAndView("sign-up","student",new Student());
+	}
+	
+}

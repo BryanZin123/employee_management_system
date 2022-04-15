@@ -1,0 +1,5 @@
+package com.claim.controller;
+
+public class CustomerController {
+
+}

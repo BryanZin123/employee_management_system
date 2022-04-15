@@ -1,0 +1,22 @@
+package com.claim.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class SendMail {
+	@Autowired
+	private JavaMailSender emailSender;
+	
+	public String send(String toEmail, String subject, String message) {
+		SimpleMailMessage simpleMailMessage = new SiimpleMailMessage();
+		
+		simpleMailMessage.setTo(toEmail);
+		simpleMailMessage.setTo(subject);
+		simpleMailMessage.setTo(message);
+		
+		emailSender.send(simpleMailMessage);
+
+	}
+}

@@ -1,0 +1,5 @@
+package com.claim.respository;
+
+public interface CustomerRepository {
+
+}

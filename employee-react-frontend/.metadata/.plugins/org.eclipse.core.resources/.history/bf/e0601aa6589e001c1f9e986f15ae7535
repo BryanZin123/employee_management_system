@@ -1,0 +1,15 @@
+package com.car_dealership.springcardealershipbackend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan(basePackages="com.claim")
+@SpringBootApplication
+public class SpringCarDealershipBackEndApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringCarDealershipBackEndApplication.class, args);
+	}
+
+}

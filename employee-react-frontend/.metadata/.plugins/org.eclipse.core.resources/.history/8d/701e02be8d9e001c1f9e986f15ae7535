@@ -1,0 +1,31 @@
+package com.claim.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.*;
+
+import com.claim.entity.Customer;
+
+@Controller
+
+public class CustomerController {
+	
+	
+	@GetMapping("/")
+	public String welcome() {
+		return "index";
+	}
+	
+	@GetMapping("/sign-up")
+	public ModelAndView signUp(Model model) {
+		return new ModelAndView("sign-up","customer",new Customer());
+	}
+	
+	@PostMapping("/sign-up")
+	public String handleSignUp(Model model, @ModelAttribute("customer")Customer customer, HttpSession session) {
+		
+		model.addAttribute("newCustomer", customer);
+		return "thank-you";
+	}
+}

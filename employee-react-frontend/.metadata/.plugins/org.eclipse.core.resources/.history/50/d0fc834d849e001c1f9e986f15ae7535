@@ -1,0 +1,25 @@
+package com.claim.controller;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.claim.entity.Customer;
+
+public class CustomerController {
+
+	
+	@GetMapping("/")
+	public String welcome() {
+		return "index";
+	}
+	
+	@GetMapping("/sign-up")
+	public String signUp() {
+		//When the user tries to view the sign up page
+		//This servlet will handle the request and add a spring ModelAttribute
+		//object to map to the sign up form called “student”, which is a Student object.
+		return "sign-up";
+
+	}
+}

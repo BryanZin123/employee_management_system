@@ -1,0 +1,63 @@
+package com.claim.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.claim.entity.Teacher;
+import com.claim.repository.TeacherRepository;
+
+@CrossOrigin
+@RestController
+
+public class TeacherController {
+
+	@Autowired
+	private TeacherRepository teacherRepository;
+	
+	
+	@RequestMapping(value="/findAllTeacher",
+			produces=MediaType.APPLICATION_JSON_VALUE,
+			 method= RequestMethod.GET
+			)
+	@ResponseBody
+	private ResponseEntity <List<Teacher>>findAllTeachers()
+	{
+		return new ResponseEntity<>(teacherRepository.findAll(),HttpStatus.OK);
+	}
+	
+	
+	
+	@RequestMapping(value="/findTeacherById",
+			produces=MediaType.APPLICATION_JSON_VALUE,
+			 method= RequestMethod.GET)
+	@ResponseBody
+	private ResponseEntity <Optional<Teacher>>findTeacher(int id)
+	{
+		return new ResponseEntity<>(teacherRepository.findById(id), HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value="/findTeacherByEmail",
+			produces=MediaType.APPLICATION_JSON_VALUE,
+			method= RequestMethod.GET)
+	@ResponseBody
+	private ResponseEntity <Optional<Teacher>>findTeacherByEmail(String email)
+	{
+		return new ResponseEntity(teacherRepository.findByEmail(email), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/findTeacherByLastName",
+			produces=MediaType.APPLICATION_JSON_VALUE,
+			method=RequestMethod.GET)
+	@ResponseBody
+	private ResponseEntity<List<Teacher>>findTeacherByLastName(String lastName){
+		return new ResponseEntity(teacherRepository.findByLastName(lastName), HttpStatus.OK);
+	}
+	
+}

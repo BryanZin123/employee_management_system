@@ -1,0 +1,15 @@
+package com.claim.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import com.claim.entity.Teacher;
+
+
+@Repository
+
+public interface TeacherRepository extends JpaRepository <Teacher, Integer>{
+	@Query("SELECT T FROM Teacher T WHERE T.email = ?1")
+	Teacher findByEmail(String email);
+
+}

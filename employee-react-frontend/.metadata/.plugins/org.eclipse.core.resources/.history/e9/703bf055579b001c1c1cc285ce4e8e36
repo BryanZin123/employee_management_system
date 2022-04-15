@@ -1,0 +1,17 @@
+package com.claim.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.claim.repository.TeacherRepository;
+
+@CrossOrigin
+@RestController
+
+public class TeacherController {
+
+	@Autowired
+	private TeacherRepository teacherRepository;
+	
+	
+}

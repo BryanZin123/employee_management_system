@@ -1,0 +1,5 @@
+package com.claim.repository;
+
+public interface CourseRepository {
+
+}

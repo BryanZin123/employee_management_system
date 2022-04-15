@@ -1,0 +1,29 @@
+package com.claim.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.claim.entity.Course;
+import com.claim.repository.CourseRepository;
+
+@CrossOrigin
+@RestController
+
+public class CourseController {
+
+	@Autowired
+	private CourseRepository courseRepository;
+	
+	@RequestMapping(value="/findAllCourses",
+			produces=MediaType.APPLICATION_JSON_VALUE,
+			method=RequestMethod.GET)
+	@ResponseBody
+	private ResponseEntity <List<Course>>findAllCourses(){
+		return new ResponseEntity<>(courseRepository.findAll(),HttpStatus.OK);
+	}
+}
